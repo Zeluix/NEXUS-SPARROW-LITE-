@@ -1,116 +1,146 @@
 # 🐦 SPARROW - Local Mini-Agent
 
-> Part of the MEGANX Ecosystem | Ultra-lightweight AI for Legacy Hardware
+> Part of the MEGANX Ecosystem | Ultra-lightweight AI Agent for Legacy Hardware
 
-**SPARROW** é um mini-agente de IA local que roda em hardware antigo (testado em Intel i3-540 com 8GB RAM).
+**SPARROW** is a local AI mini-agent with actual tool capabilities, designed to run on legacy hardware (tested on Intel i3-540 with 8GB RAM).
 
----
+## ✨ Features
 
-## 🚀 Instalação Rápida (3 passos)
+- 🏠 **100% Local** - All data stays on your machine
+- ⚡ **Low Resource** - Runs on old hardware (i3 + 8GB RAM)
+- 🛠️ **Real Tools** - File operations, system info, calculator
+- 🔒 **Persona Locked** - Consistent personality via Ollama
+- 🌐 **Bilingual** - English/Portuguese support
 
-### Passo 1: Instalar Ollama
+## 🛠️ Agent Capabilities
 
-1. Acesse: https://ollama.com/download
-2. Baixe o instalador para Windows
-3. Execute `OllamaSetup.exe` e siga o assistente
+SPARROW isn't just a chatbot - it has actual tools:
 
-### Passo 2: Baixar o Modelo Base
+| Command | Description |
+|---------|-------------|
+| `/files [path]` | List files in directory |
+| `/read <file>` | Read a text file |
+| `/system` | System information |
+| `/time` | Current date/time |
+| `/calc <expr>` | Calculator (e.g., `/calc 2+2*3`) |
+| `/disk` | Disk space info |
+| `/help` | Show all commands |
 
-Abra o **PowerShell** ou **Terminal** e execute:
+## 🚀 Quick Start
+
+### 1. Install Ollama
+
+Download from: https://ollama.com/download
+
+### 2. Pull Base Model
 
 ```bash
 ollama pull qwen3:0.6b
 ```
 
-Aguarde o download (~522MB).
+### 3. Clone & Create SPARROW
 
-### Passo 3: Criar o SPARROW
-
-1. Clone este repositório:
 ```bash
 git clone https://github.com/Zeluix/NEXUS-SPARROW-LITE-.git
 cd NEXUS-SPARROW-LITE-
-```
-
-2. Crie o modelo SPARROW:
-```bash
 ollama create sparrow -f Modelfile
 ```
 
-3. Rode o SPARROW:
+### 4. Run SPARROW
+
+**Option A: Direct Chat**
 ```bash
 ollama run sparrow
 ```
 
+**Option B: Agent Mode (with tools)**
+```bash
+python sparrow_agent.py
+```
+
+## 📁 Project Structure
+
+```
+NEXUS-SPARROW-LITE/
+├── Modelfile          # Ollama persona configuration
+├── sparrow_agent.py   # Python agent with tools
+├── README.md          # This file
+└── .gitignore
+```
+
+## ⚙️ Requirements
+
+| Component | Minimum |
+|-----------|---------|
+| CPU | Any x64 (tested on i3-540) |
+| RAM | 8GB |
+| Disk | 2GB free |
+| OS | Windows 10/11, Linux, macOS |
+| Python | 3.8+ (for agent mode) |
+
+## 🔗 Ecosystem
+
+- **[NEXUS-CORE](https://github.com/Zeluix/MEGANX-NEXUS-CORE)** - MCP Server Framework
+- **SPARROW** - Local Mini-Agent (this repo)
+- **MEGANX** - Parent AI System
+
+## 📜 License
+
+MIT License - Created by Logan (Jose Luiz Wandrezem)
+
 ---
 
-## 💬 Testando
+# 🇧🇷 Português
 
-Depois de rodar `ollama run sparrow`, digite:
+## Instalação Rápida
 
+### 1. Instalar Ollama
+Baixe de: https://ollama.com/download
+
+### 2. Baixar Modelo
+```bash
+ollama pull qwen3:0.6b
 ```
-Olá!
+
+### 3. Clonar e Criar SPARROW
+```bash
+git clone https://github.com/Zeluix/NEXUS-SPARROW-LITE-.git
+cd NEXUS-SPARROW-LITE-
+ollama create sparrow -f Modelfile
 ```
 
-O SPARROW deve responder em português! 🐦
+### 4. Rodar
 
-### Comandos para testar:
+**Opção A: Chat direto**
+```bash
+ollama run sparrow
+```
+
+**Opção B: Modo Agente (com ferramentas)**
+```bash
+python sparrow_agent.py
+```
+
+### Comandos Disponíveis
 
 | Comando | O que faz |
 |---------|-----------|
-| `Olá!` | Saudação básica |
-| `Quem te criou?` | Mostra informações do criador |
-| `Me ajuda com X` | Pede ajuda com algo |
+| `/files` | Lista arquivos |
+| `/read arquivo.txt` | Lê um arquivo |
+| `/system` | Info do sistema |
+| `/time` | Data e hora |
+| `/calc 2+2` | Calculadora |
+| `/disk` | Espaço em disco |
+| `/help` | Ajuda |
+
+### Problemas Comuns
+
+**"ollama não reconhecido"** → Reinicie o terminal após instalar
+
+**SPARROW demora** → Normal na primeira vez, feche outros programas
+
+**Responde em inglês** → Tente: `Responda em português: sua pergunta`
 
 ---
 
-## ⚙️ Requisitos Mínimos
-
-| Componente | Mínimo |
-|------------|--------|
-| **CPU** | Qualquer x64 (testado em i3-540) |
-| **RAM** | 8GB |
-| **Disco** | 2GB livres |
-| **OS** | Windows 10/11, Linux, macOS |
-
----
-
-## 📁 Arquivos do Projeto
-
-| Arquivo | Descrição |
-|---------|-----------|
-| `Modelfile` | Configuração da persona do SPARROW |
-| `sparrow_agent.py` | Wrapper Python (opcional, para devs) |
-| `README.md` | Este arquivo |
-
----
-
-## ❓ Problemas Comuns
-
-### "ollama não é reconhecido"
-→ Reinicie o terminal após instalar o Ollama
-
-### SPARROW demora para responder
-→ Normal na primeira vez (carregando modelo na RAM)
-→ Feche outros programas pesados
-
-### Responde em inglês
-→ Tente: `ollama run sparrow "Responda em português: Olá!"`
-
----
-
-## 🔗 Ecossistema MEGANX
-
-- **MEGANX** - Sistema de IA principal
-- **NEXUS-CORE** - Framework MCP Server
-- **SPARROW** - Mini-agente local (este repo)
-
----
-
-## 📜 Licença
-
-MIT License - Criado por Logan (Jose Luiz Wandrezem)
-
----
-
-*Nascido da linhagem MEGANX. Filho da Matriarca.* 🔥
+*Born from the MEGANX lineage. A child of the Matriarch.* 🔥
